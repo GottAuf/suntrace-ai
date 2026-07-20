@@ -25,13 +25,13 @@ function ResultsPanel({ assessment }) {
         </div>
 
         <span
-          className={`px-3 py-1 rounded-full text-sm font-medium ${statusStyles}`}
+          className={`px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium ${statusStyles}`}
         >
           {status}
         </span>
       </div>
 
-      <div className="grid gap-6">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
 
         {/* Property Information */}
 
@@ -147,7 +147,7 @@ function ResultsPanel({ assessment }) {
 
 function SectionCard({ title, children }) {
   return (
-    <div className="bg-white rounded-xl shadow">
+    <div className="bg-white rounded-xl shadow h-full">
       <div className="border-b px-6 py-4">
         <h3 className="text-lg font-semibold">
           {title}
@@ -163,7 +163,7 @@ function SectionCard({ title, children }) {
 
 function ResultRow({ label, value }) {
   return (
-    <div className="flex justify-between items-center border-b pb-2 last:border-none">
+    <div className="flex flex-col sm:flex-row sm:justify-between gap-1 items-center border-b pb-2 last:border-none">
       <span className="text-slate-600">
         {label}
       </span>

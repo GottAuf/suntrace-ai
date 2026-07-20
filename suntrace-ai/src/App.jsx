@@ -51,8 +51,8 @@ function App() {
     <div className="min-h-screen bg-slate-100">
       <Navbar />
 
-      <main className="max-w-7xl mx-auto p-6">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <main className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
           {/* Assessment Form */}
           <div>
             <AssessmentForm onSearch={handleSearch} />
@@ -60,7 +60,7 @@ function App() {
 
           {/* Interactive Map */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-xl shadow h-[700px] p-2">
+            <div className="bg-white rounded-xl shadow h-[350px] md:h-[500px] xl:h-[700px] p-2">
               <MapView location={mapLocation} />
             </div>
           </div>
