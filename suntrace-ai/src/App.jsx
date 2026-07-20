@@ -9,28 +9,10 @@ import { searchLocation } from "./services/geocoding";
 
 function App() {
   const [assessment, setAssessment] = useState({
-    property: {
-      address: "",
-      lat: null,
-      lng: null,
-    },
-    solar: {
-      ghi: null,
-      systemSize: null,
-      panelCount: null,
-      annualEnergy: null,
-      annualSavings: null,
-      roi: null,
-    },
-    security: {
-      risk: null,
-      blindSpots: null,
-      recommendations: null,
-    },
-    report: {
-      pdf: null,
-      audio: null,
-    },
+    property: null,
+    solar: null,
+    security: null,
+    report: null,
   });
 
   const handleSearch = async (formData) => {
@@ -43,26 +25,27 @@ function App() {
           address: result.displayName,
           lat: result.lat,
           lng: result.lng,
+          monthlyBill: Number(formData.monthlyBill),
+          securityLevel: formData.securityLevel,
         },
       }));
     } catch (error) {
+      console.error(error);
       alert(error.message);
     }
   };
 
-  const mapLocation =
-    assessment.property.lat !== null &&
-    assessment.property.lng !== null
-      ? {
-          lat: assessment.property.lat,
-          lng: assessment.property.lng,
-          zoom: 18,
-        }
-      : {
-          lat: 0,
-          lng: 0,
-          zoom: 2,
-        };
+  const mapLocation = assessment.property
+    ? {
+        lat: assessment.property.lat,
+        lng: assessment.property.lng,
+        zoom: 18,
+      }
+    : {
+        lat: 0,
+        lng: 0,
+        zoom: 2,
+      };
 
   return (
     <div className="min-h-screen bg-slate-100">
